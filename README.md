@@ -1,15 +1,15 @@
-<h1>📚 Challenge API - Sistema de Gestión de Tópicos</h1>
+<h1>📚 Challenge API </h1>
 
 <h2>🔨 Desarrollado por</h2>
 
-- [Tu Nombre Aquí]
+- [Alonso Higa]
 
 <h2>📄 Descripción del Proyecto</h2>
 
 API REST construida con <strong>Spring Boot</strong> para la gestión de usuarios y tópicos de discusión.  
 Incluye autenticación <strong>JWT</strong>, validación de datos y manejo global de errores.
 
-<h2>💥 Requisitos Previos</h2>
+<h2> Requisitos Previos</h2>
 
 >[!WARNING]  
 > 💾 Debes tener <strong>MySQL</strong> instalado y ejecutándose
@@ -89,7 +89,7 @@ Requiere credenciales válidas de usuario y devuelve un token JWT.
   </tbody>
 </table>
 
-<h2>❗ Manejo de Errores</h2>
+<h2> Manejo de Errores</h2>
 
 Los errores de validación y recursos no encontrados son manejados por <code>GestorDeErrores.java</code>, devolviendo respuestas claras y estructuradas al cliente.
 
