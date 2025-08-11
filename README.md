@@ -1,30 +1,40 @@
-📚 Challenge API - Sistema de Gestión de Tópicos
-API REST construida con Spring Boot para la gestión de usuarios y tópicos de discusión. Incluye autenticación JWT, validación de datos y control de errores globales.
+<h1>📚 Challenge API - Sistema de Gestión de Tópicos</h1>
 
-🛠️ Tecnologías utilizadas
-	- Java 17
+<h2>🔨 Desarrollado por</h2>
 
-	- Spring Boot 3.5.x
+- [Tu Nombre Aquí]
 
-	- Spring Security
+<h2>📄 Descripción del Proyecto</h2>
 
-	- Spring Data JPA
+API REST construida con <strong>Spring Boot</strong> para la gestión de usuarios y tópicos de discusión.  
+Incluye autenticación <strong>JWT</strong>, validación de datos y manejo global de errores.
 
-	- MySQL
+<h2>💥 Requisitos Previos</h2>
 
-	- Flyway (migraciones)
+>[!WARNING]  
+> 💾 Debes tener <strong>MySQL</strong> instalado y ejecutándose
 
-	- JWT (Auth0)
+>[!WARNING]  
+> ⚙️ Configura tus credenciales en el archivo <code>application.properties</code>
 
-	- Lombok
+<h2>💻 Tecnologías Utilizadas</h2>
 
-⚙️ Configuración
-1. Base de datos (MySQL)
-Configura tu archivo application.properties:
+- <strong>Lenguaje:</strong> Java 17  
+- <strong>Framework:</strong> Spring Boot 3.5.x  
+- Spring Security  
+- Spring Data JPA  
+- MySQL  
+- Flyway (migraciones)  
+- JWT (Auth0)  
+- Lombok
 
-properties
-Copiar
-Editar
+<h2>⚙️ Configuración del Proyecto</h2>
+
+<h3>1. Base de Datos (MySQL)</h3>
+
+Configura tu archivo <code>application.properties</code>:
+
+<pre><code>
 spring.datasource.url=jdbc:mysql://localhost:3306/challenge
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_password
@@ -34,42 +44,57 @@ spring.jpa.show-sql=true
 
 spring.flyway.enabled=true
 spring.flyway.locations=classpath:db/migration
+</code></pre>
 
-2. Ejecución del proyecto
-bash
-Copiar
-Editar
-./mvnw spring-boot:run
-🔐 Autenticación
-Endpoint de login: POST /login
+<h3>2. Ejecución del Proyecto</h3>
 
-Requiere credenciales válidas de un Usuario
+Usa el siguiente comando para iniciar la aplicación:
 
-Devuelve un token JWT
+<pre><code>./mvnw spring-boot:run</code></pre>
 
-Ejemplo de request:
+<h2>🔐 Autenticación</h2>
 
-json
-Copiar
-Editar
-{
+<h3>Endpoint de Login</h3>
+
+<code>POST /login</code>  
+Requiere credenciales válidas de usuario y devuelve un token JWT.
+
+<h4>📥 Ejemplo de Request:</h4>
+
+<pre><code>{
   "login": "usuario123",
   "contrasenha": "secreta"
 }
-Endpoints principales
-Método	Ruta	Descripción
-POST	/topicos	Registrar un tópico
-GET	/topicos	Listar tópicos
-PUT	/topicos	Actualizar un tópico
-DELETE	/topicos/{id}	Desactivar un tópico
-GET	/topicos/{id}	Obtener detalle de un tópico
+</code></pre>
 
-Manejo de errores
-Todos los errores de validación y entidades no encontradas son manejados por GestorDeErrores.java, devolviendo respuestas claras al cliente.
+> Todos los endpoints protegidos requieren un JWT válido en el header:
+> <code>Authorization: Bearer &lt;token&gt;</code>
 
-📌 Notas finales
-Asegúrate de tener las tablas creadas correctamente con Flyway.
+<h2>📌 Endpoints Principales</h2>
 
-Todos los endpoints protegidos requieren un JWT válido.
+<table>
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th>Ruta</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>POST</td><td>/topicos</td><td>Registrar un tópico</td></tr>
+    <tr><td>GET</td><td>/topicos</td><td>Listar todos los tópicos</td></tr>
+    <tr><td>GET</td><td>/topicos/{id}</td><td>Obtener detalle de un tópico</td></tr>
+    <tr><td>PUT</td><td>/topicos</td><td>Actualizar un tópico</td></tr>
+    <tr><td>DELETE</td><td>/topicos/{id}</td><td>Desactivar un tópico</td></tr>
+  </tbody>
+</table>
 
-Puedes extender la lógica de usuarios y tópicos fácilmente.
+<h2>❗ Manejo de Errores</h2>
+
+Los errores de validación y recursos no encontrados son manejados por <code>GestorDeErrores.java</code>, devolviendo respuestas claras y estructuradas al cliente.
+
+<h2>📝 Notas Finales</h2>
+
+- Asegúrate de que las migraciones Flyway se ejecuten correctamente al iniciar la aplicación.
+- Todos los endpoints protegidos requieren un JWT válido.
+- La lógica de usuarios y tópicos es fácilmente extensible para futuras funcionalidades.
